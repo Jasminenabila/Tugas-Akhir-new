@@ -2,12 +2,12 @@
 const { Given, When, Then } = require('@wdio/cucumber-framework');
 const LoginPage = require('../pages/login.page');
 const PelangganPage = require('../pages/pelanggan.page'); 
-const { faker } = require('@faker-js/faker');
 
 Given(/^Make sure already logged on dashboard$/, async () => {
     await LoginPage.open();
     await LoginPage.login('harpot1@email.com', 'password1');
     await LoginPage.clickbutton();
+    await browser.refresh();
     const successDashboard = await LoginPage.successDashboard;
     await expect(browser).toHaveUrl('https://kasiraja.ajikamaludin.id/dashboard');
     await successDashboard.waitForDisplayed({ timeout: 2000 }); 
