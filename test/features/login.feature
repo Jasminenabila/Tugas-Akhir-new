@@ -2,13 +2,13 @@ Feature: Kasir Aja Login Features
 
     @all @negative
     Scenario: Show error for invalid username
-        Given Website kasiraja invalid username
+        Given Website kasiraja has been opened
         When User input credentials email and password with invalid username
         Then User should be able see an error message
 
     @all @negative
     Scenario: Show error for invalid password
-        Given Website kasiraja error password
+        Given Website kasiraja has been opened
         When User input credentials email and password valid with invalid password
         Then User should be able see an error message
     

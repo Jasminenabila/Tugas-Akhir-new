@@ -1,5 +1,4 @@
-// pelanggan.page.js
-
+const { faker } = require('@faker-js/faker');
 class PelangganPage {
 
     get btnTambah() {
@@ -11,7 +10,7 @@ class PelangganPage {
     }
 
     get noHp1() {
-        return $('#no.hp');
+        return $("//input[@id='no.hp']");
     }
 
     get alamatPelanggan() {
@@ -30,7 +29,12 @@ class PelangganPage {
         return $('.css-u3dlpe');
     }
 
+    get getAlertFailed(){
+        return $('.chakra-alert.css-qwanz3')
+    }
+
     async clickbtnTambah() {
+        await browser.refresh();
         await this.btnTambah.click();
     }
 
@@ -43,13 +47,27 @@ class PelangganPage {
         console.log("ini text nya!!!"+verifyText);
     }
 
-    async inputPelanggan(nama, alamat, keterangan) {
+    async inputPelanggan() {
+        await browser.refresh();
+        await this.namaPelanggan.setValue(faker.person.fullName());
+        await this.noHp1.setValue(faker.number.int());
+        await this.alamatPelanggan.setValue(faker.location.streetAddress());
+        await this.keteranganPelanggan.setValue(faker.lorem.sentence());
+    }
+
+    async inputPelangganEmpty(nama, noHp, alamat, keterangan) {
+        await browser.refresh();
         await this.namaPelanggan.setValue(nama);
-        // await this.noHp1.setValue(nohp);
+        await this.noHp1.setValue(noHp);
         await this.alamatPelanggan.setValue(alamat);
         await this.keteranganPelanggan.setValue(keterangan);
     }
+
+    async inputPelangganInvalidFormatPhone() {
+        await browser.refresh();
+        await this.namaPelanggan.setValue(faker.person.fullName());
+        await this.noHp1.setValue(faker.phone.number());
+    }
 }
 
-// Export the instance of the PelangganPage class
 module.exports = new PelangganPage();

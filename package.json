@@ -9,6 +9,7 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@faker-js/faker": "^9.3.0",
     "@wdio/cli": "^9.4.2",
     "@wdio/cucumber-framework": "^9.4.2",
     "@wdio/local-runner": "^9.4.2",

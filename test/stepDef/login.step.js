@@ -20,10 +20,6 @@ Then(/^User should be able successfully dashboard kasirAja$/,async () => {
     await successDashboard.waitForDisplayed({ timeout: 2000 }); 
 });
 
-Given(/^Website kasiraja invalid username$/, async () => {
-    await LoginPage.open()
- });
-
 When(/^User input credentials email and password with invalid username$/, async () => {
     await LoginPage.login('harpot19@email.com', 'password1');
 }); 
@@ -33,11 +29,6 @@ Then(/^User should be able see an error message$/, async () => {
     const errorMessage = await LoginPage.errorMessage;
     await errorMessage.waitForDisplayed({ timeout: 5000 }); 
 });
-
- Given(/^Website kasiraja error password$/, async () => {
-    await LoginPage.open()
- });
-
 
 When(/^User input credentials email and password valid with invalid password$/, async () => {
     await LoginPage.login('harpot1@email.com', 'password12');
