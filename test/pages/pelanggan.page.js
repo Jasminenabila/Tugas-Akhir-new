@@ -25,6 +25,15 @@ class PelangganPage {
         return $('.chakra-button.css-l5lnz6');
     }
 
+    get alertMessage() {
+        return $('.chakra-alert.css-3b6enb');
+    }
+    
+    async verifyAlert() {
+        const alert = await this.alertMessage;
+        await expect(alert).toBeDisplayed();
+    }
+
     get verifyLineName() {
         return $('.css-u3dlpe');
     }
@@ -43,7 +52,7 @@ class PelangganPage {
     }
 
     async getNameText() {
-        const verifyText = await this.verifyLineName.getText();   
+        const verifyText = await this.verifyLineName.getText(); 
         console.log("ini text nya!!!"+verifyText);
     }
 

@@ -1,4 +1,3 @@
-// pelanggan.step.js
 const { Given, When, Then } = require('@wdio/cucumber-framework');
 const LoginPage = require('../pages/login.page');
 const PelangganPage = require('../pages/pelanggan.page'); 
@@ -7,13 +6,14 @@ Given(/^Make sure already logged on dashboard$/, async () => {
     await LoginPage.open();
     await LoginPage.login('harpot1@email.com', 'password1');
     await LoginPage.clickbutton();
-    await browser.refresh();
     const successDashboard = await LoginPage.successDashboard;
     await expect(browser).toHaveUrl('https://kasiraja.ajikamaludin.id/dashboard');
     await successDashboard.waitForDisplayed({ timeout: 2000 }); 
+    await browser.refresh();
 });
 
 When(/^click button tambah$/, async () => {
+    await browser.refresh();
     await browser.url('https://kasiraja.ajikamaludin.id/customers');
     await browser.refresh();
     await PelangganPage.clickbtnTambah();
@@ -34,6 +34,7 @@ When(/^input form pelanggan data invalid format number$/, async () => {
 Then(/^Click button tambah and showing alert success$/, async () => {
     await PelangganPage.clickbtnSimpanPelanggan();
     await browser.pause(2000); 
+    await PelangganPage.verifyAlert();
     await PelangganPage.getNameText();
 });
 

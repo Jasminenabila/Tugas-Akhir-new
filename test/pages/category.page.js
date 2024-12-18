@@ -43,9 +43,9 @@ class CategoryPage {
     }
 
     async getInputValueCategory(){
-        const inputText = await this.getNameText();
+        const inputText = await this.verifyLineName.getText();  
         console.log(inputText)
-        await valueSearchCategory.setValue(inputText)
+        await this.valueSearchCategory.setValue(inputText)
     }
 
     async inputCategory() {

@@ -124,6 +124,10 @@ exports.config = {
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
     // reporters: ['dot'],
+    reporters: [['allure', {
+        outputDir: './reports/allure-results'
+
+    }]],
 
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
@@ -252,6 +256,14 @@ exports.config = {
      * @param {number}             result.duration  duration of scenario in milliseconds
      * @param {object}             context          Cucumber World object
      */
+    
+    afterStep: function (step, context, { error, result, duration, passed, retries }) {
+        const moment= require('moment');
+        if(error) {
+            browser.saveScreenshot('./reports/screenshots/Fail_' + 
+                                   moment().format('DD-MMM-YYYY-HH-MM-SS') + '.png')
+        }
+     },
     // afterStep: function (step, scenario, result, context) {
     // },
     /**

@@ -24,14 +24,13 @@ When(/^input form category data empty$/, async () => {
     await CategoryPage.inputCategoryEmpty("", "");
 });
 
-When(/^iinput value category on the category page$/, async () => {
+When(/^input value category on the category page$/, async () => {
     await CategoryPage.getInputValueCategory();
 });
 
 When(/^input form category$/, async () => {
     await CategoryPage.inputCategory();  
     await browser.pause(2000);
-    await browser.saveScreenshot('screenshot.png');
 });
 
 Then(/^Click button tambah category and showing alert success$/, async () => {
@@ -51,5 +50,5 @@ Then(/^Click button tambah category and showing alert failed$/, async () => {
 Then(/^Click enter and showing available success$/, async () => {
     await browser.keys('Enter');
     await CategoryPage.getNameText();
-    await browser.saveScreenshot('screenshot.png');
+    await browser.pause(2000);
 });
