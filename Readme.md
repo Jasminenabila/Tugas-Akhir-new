@@ -1,4 +1,4 @@
-## Laporan Tugas Pekanan 4
+## Laporan Tugas Akhir
 
 ## Video Recording & Evidence Screenshot Testing
 https://drive.google.com/drive/folders/1FwK4KicVSPTomYZ30_semPlbh4rM1aon?usp=sharing
