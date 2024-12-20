@@ -10,3 +10,10 @@ https://docs.google.com/spreadsheets/d/1ZsJBHvaqEkYxcpkUDBUz3de0SlANqsoOxxS4wDHc
 
 ## Link Github
 https://github.com/Jasminenabila/Tugas-Akhir-new
+
+### Report Allure Evidence
+![Report Allure 1](assets/ss1.png)
+![Report Allure 2](assets/ss2.png)
+![Report Allure 3](assets/ss3.png)
+![Report Allure 4](assets/ss4.png)
+![Report Allure 5](assets/ss5.png)
